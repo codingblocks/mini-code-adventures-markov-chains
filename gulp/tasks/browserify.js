@@ -12,9 +12,9 @@ var source = require('vinyl-source-stream');
 // Vendor
 gulp.task('vendor', function() {
   return browserify({debug: true})
-    .require('jquery')
-    .require('lodash', {expose: 'underscore'})
-    .require('backbone')
+    .external('jquery')
+    .external('lodash', {expose: 'underscore'})
+    .external('backbone')
     .bundle()
     .pipe(source('vendor.js'))
     .pipe(gulp.dest(config.dist + '/scripts/'));
